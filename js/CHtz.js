@@ -37,10 +37,10 @@
             someElm.style.left = x+"px";
             someElm.style.top = y +"px";
             //阻止页面的滑动默认事件
-            document.addEventListener("touchmove",function(e){            	
-            	e.preventDefault();
-            	console.log(e)
-            },false);
+//          document.addEventListener("touchmove",function(e){            	
+//          	e.preventDefault();
+//          	console.log(e)
+//          },false);
         }
    }
     function end(){

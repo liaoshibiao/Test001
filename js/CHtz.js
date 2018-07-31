@@ -36,9 +36,14 @@
             someElm.style.left = x+"px";
             someElm.style.top = y +"px";
             //阻止页面的滑动默认事件
-            document.addEventListener("touchmove",function(){
-                event.preventDefault();
-            },false);
+//          document.addEventListener("touchmove",function(){
+//               if (event.cancelable) {
+//				        // 判断默认行为是否已经被禁用
+//				        if (!event.defaultPrevented) {
+//				            event.preventDefault();
+//				        }
+//				    }
+//          },false);
         }
     }
     //鼠标释放时候的函数
@@ -68,19 +73,3 @@
         end();
     },false);
     
-
-
-
-function stopTouchendPropagationAfterScroll(){
-    var locked = false;
-
-    window.addEventListener('touchmove', function(ev){
-        locked || (locked = true, window.addEventListener('touchend', stopTouchendPropagation, true));
-    }, true);
-    function stopTouchendPropagation(ev){
-        ev.stopPropagation();
-        window.removeEventListener('touchend', stopTouchendPropagation, true);
-        locked = false;
-    }
-}
-stopTouchendPropagationAfterScroll();

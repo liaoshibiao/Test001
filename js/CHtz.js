@@ -20,7 +20,8 @@
          $("#someElm").css("background-size","100%")
     }
     function move(){
-    	 $("#someElm").css("background",'url(images/ic_condition_hover.png)')
+    	
+    	  $("#someElm").css("background",'url(images/ic_condition_hover.png)')
     	  $("#someElm").css("background-size","100%")
     	  $("html").css("overflow","hidden")
         if(flag){
@@ -36,14 +37,21 @@
             y = dy+ny;
             someElm.style.left = x+"px";
             someElm.style.top = y +"px";
-            //阻止页面的滑动默认事件
-//          document.addEventListener("touchmove",function(e){            	
-//          	e.preventDefault();
-//          	console.log(e)
-//          },false);
         }
    }
     function end(){
+    	var Y = $("#someElm").offset().top;
+		var X = $('#someElm').offset().left;
+		var X_width = $("#someElm").width();
+		var Y_height = $("#someElm").height();
+		if( X >= document.body.clientWidth-X_width){
+			$("#someElm").css({"left":document.body.clientWidth-X_width+"px"})
+		}else if(X <= 0){
+			$("#someElm").css({"left":0})
+		}else if(Y<= 0){
+			$("#someElm").css({"top":0})
+		}
+		  
     	  $("#someElm").css('background',"url(images/ic_condition.png)")
     	  $("#someElm").css("background-size","100%")
     	  $("html").css("overflow","auto")
@@ -69,4 +77,5 @@
         end();
     },false);
     
+
 

@@ -109,9 +109,7 @@ function fengzhuang(par){
 						      $("#zuobianzhanbi").append("<span id='l_top'>▲</span><span id='l_dow'>▼</span>")
 					      			firstList_jine()
 					      	jinqian();
-					      	firstList_zhanbi();
-					      
-					      		
+					      	firstList_zhanbi();		
 					      }else if(SelectedItem[0].index==2){
 					      	 $(".data_list_r ul").children().remove()
 						     $(".data_list_m ul").children().remove()

@@ -67,3 +67,19 @@
     someElm.addEventListener("touchend",function(){
         end();
     },false);
+    
+
+
+
+function stopTouchendPropagationAfterScroll(){
+    var locked = false;
+
+    window.addEventListener('touchmove', function(ev){
+        locked || (locked = true, window.addEventListener('touchend', stopTouchendPropagation, true));
+    }, true);
+    function stopTouchendPropagation(ev){
+        ev.stopPropagation();
+        window.removeEventListener('touchend', stopTouchendPropagation, true);
+        locked = false;
+    }
+}stopTouchendPropagationAfterScroll();

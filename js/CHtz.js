@@ -22,6 +22,7 @@
     function move(){
     	 $("#someElm").css("background",'url(images/ic_condition_hover.png)')
     	  $("#someElm").css("background-size","100%")
+    	  $("html").css("overflow","hidden")
         if(flag){
             var touch ;
             if(event.touches){
@@ -36,22 +37,17 @@
             someElm.style.left = x+"px";
             someElm.style.top = y +"px";
             //阻止页面的滑动默认事件
-//          document.addEventListener("touchmove",function(){
-//               if (event.cancelable) {
-//				        // 判断默认行为是否已经被禁用
-//				        if (!event.defaultPrevented) {
-//				            event.preventDefault();
-//				        }
-//				    }
-//          },false);
+            document.addEventListener("touchmove",function(e){            	
+            	e.preventDefault();
+            	console.log(e)
+            },false);
         }
-    }
-    //鼠标释放时候的函数
+   }
     function end(){
     	  $("#someElm").css('background',"url(images/ic_condition.png)")
     	  $("#someElm").css("background-size","100%")
-    	  $("#someElm").css("z-index","1")
-        flag = false;
+    	  $("html").css("overflow","auto")
+         flag = false;
     }
     var someElm = document.getElementById("someElm");
     someElm.addEventListener("mousedown",function(){
@@ -73,3 +69,4 @@
         end();
     },false);
     
+

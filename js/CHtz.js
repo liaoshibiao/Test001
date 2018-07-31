@@ -82,4 +82,5 @@ function stopTouchendPropagationAfterScroll(){
         window.removeEventListener('touchend', stopTouchendPropagation, true);
         locked = false;
     }
-}stopTouchendPropagationAfterScroll();
+}
+stopTouchendPropagationAfterScroll();

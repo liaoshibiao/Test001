@@ -45,6 +45,7 @@
     function end(){
     	  $("#someElm").css('background',"url(images/ic_condition.png)")
     	  $("#someElm").css("background-size","100%")
+    	  $("#someElm").css("z-index","1")
         flag = false;
     }
     var someElm = document.getElementById("someElm");
